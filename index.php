@@ -15,10 +15,22 @@ and open the template in the editor.
     
     include "funciones/conectar.php";
     include "funciones/consulta.php";
-    if(conectar("ajax")){
+    include "funciones/obtenerRegistros.php";
+    include "funciones/consultaSelect.php";
+    
+    /*if(conectar("ajax")){
         echo "<br>result satisfactorio<br>";
         echo print_r($result);
-    }
+    }*/
+    
+    echo "<p>Obtener registros</p>";
+    $registros = obtenerRegistros("ajax","SELECT * FROM clientes");
+    
+    foreach($registros as $registro){
+                echo $registro['Nombre']."<br>";
+            }
+        
+   
        
     ?>
         

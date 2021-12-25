@@ -5,11 +5,12 @@ function consulta($conn){
 
     
     //en workbench poner la clave primaria id autoincremental
-    $query_update = "UPDATE ajax.clientes SET Nombre='adele' WHERE Nombre='adela'";
-    $query_insert = "INSERT INTO ajax.clientes (Nombre, Apellido1,Apellido2) VALUES ('adela','Mayo','Romero')";
+    $query_update = "UPDATE ajax.clientes SET Nombre='adela' WHERE Nombre='adele'";
+    $query_insert = "INSERT INTO ajax.clientes (Nombre, Apellido1,Apellido2) VALUES ('soni','Mayo','Romero')";
     //$query_select = "SELECT * FROM clientes WHERE Nombre='z'";
     $query_select = "SELECT * FROM clientes";
-    $query_delete = "DELETE FROM clientes WHERE Nombre='NAVI'";
+    $query_delete = "DELETE FROM clientes WHERE Nombre='jordi'";
+    
     $result = mysqli_query($conn, $query_select) OR die(mysqli_error($conn));
     
     echo "<br>Valor de result: ";
@@ -44,7 +45,10 @@ function consulta($conn){
             mysqli_free_result($result);
             echo "<br>Liberar result, valor de result: ";
             echo var_dump($result)."<br>";
+        }
+    
+    
     }
+    
     return $result;
-}
 }
