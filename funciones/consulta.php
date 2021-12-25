@@ -11,8 +11,7 @@ function consulta($conn){
     $query_select = "SELECT * FROM clientes";
     $query_delete = "DELETE FROM clientes WHERE Nombre='pepe'";
     
-    $result = mysqli_query($conn,$query_select) OR die(mysqli_error($conn));
-    
+    $result = mysqli_query($conn, $query_select) OR die(mysqli_error($conn));
     
     if($result){
         echo "<br>Valor de result: ";
@@ -33,11 +32,29 @@ function consulta($conn){
             //si $result es object, la consulta es un select
             if(is_object($result)){
                 
-                foreach($fila = mysqli_fetch_assoc($result) as $campo => $valorcampo){
-                    echo "<br>";
-                    echo $valorcampo . " es el " . $campo;
-                  
+               
+                
+                echo "<p>ASSOC";
+                
+                echo "<table border='1'><tr>"
+                . "<th>Nombre</th><th>Apellido1</th><th>Apellido2</th>"
+                . "</tr>";
+                
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "<tr>";
+                   
+                    echo "<td>".$row['Nombre']."</td>";
+                    echo "<td>".$row['Apellido1']."</td>";
+                    echo "<td>".$row['Apellido2']."</td>";
+                    echo "</tr>";
                 }
+                  
+                echo"</table>";
+                
+               
+                
+                //$filas = mysqli_fetch_array($result);
+                
                 
                 mysqli_free_result($result);
                 echo "<br>Liberar result, valor de result: ";
@@ -47,7 +64,7 @@ function consulta($conn){
         
         
     }else{
-        echo "<br>fallo en la consulta o inserccion";
+        echo "<br>fallo en la consulta";
     }
     return $result;
 }

@@ -11,25 +11,16 @@ and open the template in the editor.
     </head>
     <body>
         
-        
-        
-        
-        <?php
-        include "funciones/conectar.php";
-        include "funciones/consulta.php";
-        if(conectar("ajax")){
-            echo "<br>result satisfactorio<br>";
-            echo print_r($result);
-        }
-        /*$result = conectar("ajax");
-        
-        $filas = mysqli_fetch_assoc($result);
-        foreach($filas as $fila => $valorfila){
-            echo "<br>";
-            echo $valorfila . " es el " . $fila;
-        }*/
-        
-        ?>
+    <?php
+    
+    include "funciones/conectar.php";
+    include "funciones/consulta.php";
+    if(conectar("ajax")){
+        echo "<br>result satisfactorio<br>";
+        echo print_r($result);
+    }
+       
+    ?>
         
     </body>
 </html>
